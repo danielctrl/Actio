@@ -1,3 +1,1 @@
-dotnet add Actio.Api/Actio.Api.csproj reference Actio.Common/Actio.Common.csproj
-dotnet add Actio.Services.Activities/Actio.Services.Activities.csproj reference Actio.Common/Actio.Common.csproj
-dotnet add Actio.Services.Identity/Actio.Services.Identity.csproj reference Actio.Common/Actio.Common.csproj
+docker run -p 5672:5672 --hostname actio-host --name actio-microservices rabbitmq

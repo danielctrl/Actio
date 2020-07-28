@@ -1,0 +1,9 @@
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\bin\Debug\net5.0\Actio.Common.deps.json
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\bin\Debug\net5.0\Actio.Common.dll
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\bin\Debug\net5.0\Actio.Common.pdb
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\obj\Debug\net5.0\Actio.Common.csprojAssemblyReference.cache
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\obj\Debug\net5.0\Actio.Common.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\obj\Debug\net5.0\Actio.Common.AssemblyInfo.cs
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\obj\Debug\net5.0\Actio.Common.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\obj\Debug\net5.0\Actio.Common.dll
+C:\Users\danie\Documents\Workspace\Learning\MicroServices\Actio\src\Actio.Common\obj\Debug\net5.0\Actio.Common.pdb

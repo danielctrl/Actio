@@ -1,6 +1,8 @@
 https://www.udemy.com/course/net-core-microservices/learn/lecture/8495412
 
 Chapter 1: 5.Creating Solution
+Chapter 2: 6.Configuring RabbitMQ Service Bus
+Chapter 2: 7.Creating Commands
 
 23/07/2020 
- 20:28 > 
+ 20:28 > 21:54
