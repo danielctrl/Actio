@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Actio.Common.Events
 {
-    public class CreatedUserRejected : IRejectedEvent
+    public class CreateActivityRejected : IRejectedEvent
     {
-        public string Email { get; set; }
+        public string Name { get; }
 
         public string Reason { get; }
 
         public string Code { get; }
 
-        protected CreatedUserRejected()
+        protected CreateActivityRejected()
         {
         }
 
-        public CreatedUserRejected(string email, string reason, string code)
+        public CreateActivityRejected(string name, string reason, string code)
         {
-            Email = email;
+            Name = name;
             Reason = reason;
             Code = code;
         }

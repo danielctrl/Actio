@@ -1,7 +1,10 @@
 ﻿using Actio.Common.Commands;
+using Actio.Common.Events;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using RawRabbit;
 using RawRabbit.Instantiation;
-using RawRabbit.Pipe;
+using RawRabbit.Pipe.Middleware;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -9,17 +12,40 @@ namespace Actio.Common.RabbitMq
 {
     public static class Extensions
     {
-        public static Task WithCommandHandlerAsync<TCommand>(this IBusClient bus, ICommandHandler<TCommand> handler)
-            where TCommand : ICommand
+        public static Task WithCommandHandlerAsync<TCommand>(this IBusClient bus,
+            ICommandHandler<TCommand> handler) where TCommand : ICommand
         {
-            var client = RawRabbitFactory.CreateSingleton();
-
-            return await client.SubscribeAsync<TCommand>(
+            return bus.SubscribeAsync<TCommand>(
                 msg => handler.HandleAsync(msg),
-                ctx => ctx.UseConsumerConfiguration(cfg => cfg.FromDeclaredQueue(q => q.WithName()))
-            );
+                context => context.UseSubscribeConfiguration(
+                    config => config.FromDeclaredQueue(
+                        queue => queue.WithName(GetQueueName<TCommand>()))));
+        }
+
+        public static Task WithEventHandlerAsync<TEvent>(this IBusClient bus,
+            IEventHandler<TEvent> handler) where TEvent : IEvent
+        {
+            return bus.SubscribeAsync<TEvent>(
+                msg => handler.HandleAsync(msg),
+                context => context.UseSubscribeConfiguration(
+                    config => config.FromDeclaredQueue(
+                        queue => queue.WithName(GetQueueName<TEvent>()))));
         }
 
         private static string GetQueueName<T>() => $"{Assembly.GetEntryAssembly().GetName()}/{typeof(T).Name}";
+
+        public static void AddRabbitMq(this IServiceCollection services, IConfiguration configuration)
+        {
+            var rabbitMqOptions = new RabbitMqOptions();
+            var section = configuration.GetSection("Rabbitmq");
+            section.Bind(rabbitMqOptions);
+
+            var client = RawRabbitFactory.CreateSingleton(new RawRabbitOptions
+            {
+                ClientConfiguration = rabbitMqOptions
+            });
+
+            services.AddSingleton<IBusClient>(client);
+        }
     }
 }

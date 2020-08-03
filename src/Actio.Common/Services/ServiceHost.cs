@@ -1,5 +1,6 @@
 ﻿using Actio.Common.Commands;
 using Actio.Common.Events;
+using Actio.Common.RabbitMq;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,10 +24,7 @@ namespace Actio.Common.Services
             _webHost = webHost;
         }
 
-        public void Run()
-        {
-            _webHost.Run();
-        }
+        public void Run() => _webHost.Run();
 
         public static HostBuilder Create<TStartup>(string[] args) 
             where TStartup : class
@@ -68,10 +66,7 @@ namespace Actio.Common.Services
                 return new BusBuilder(_webHost, _bus);
             }
 
-            public override ServiceHost Build()
-            {
-                return new ServiceHost(_webHost);
-            }
+            public override ServiceHost Build() => new ServiceHost(_webHost);
         }
 
         public class BusBuilder : BuilderBase
@@ -104,10 +99,7 @@ namespace Actio.Common.Services
                 return this;
             }
 
-            public override ServiceHost Build()
-            {
-                throw new NotImplementedException();
-            }
+            public override ServiceHost Build() => new ServiceHost(_webHost);
         }
     }
 }
