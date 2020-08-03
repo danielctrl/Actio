@@ -6,3 +6,9 @@ Chapter 2: 7.Creating Commands
 
 23/07/2020 
  20:28 > 21:54
+
+
+
+Chapter 2: 8.Creating Events
+01/08/2020 
+ 20:28 > 21:15

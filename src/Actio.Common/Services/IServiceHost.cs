@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Actio.Common.Commands
+namespace Actio.Common.Services
 {
-    public interface ICommandHandler<in T> where T : ICommand
+    public interface IServiceHost
     {
-        Task HandleAsync(T command);
+        void Run();
     }
 }

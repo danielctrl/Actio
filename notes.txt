@@ -1,1 +1,4 @@
 docker run -p 5672:5672 --hostname actio-host --name actio-microservices rabbitmq
+
+Install-Package RawRabbit -Version 1.10.4
+Install-Package RawRabbit -Version 2.0.0-rc5
