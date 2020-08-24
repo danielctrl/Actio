@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Actio.Common.Commands;
+﻿using Actio.Common.Commands;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
+using System;
+using System.Threading.Tasks;
 
 namespace Actio.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ActivitiesController : ControllerBase
     {
